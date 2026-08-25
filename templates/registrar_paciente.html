@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Paciente - HCE{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card-glass">
+            <div class="card-header-biomed">
+                <i class="fas fa-user-plus"></i> Registrar Nuevo Paciente
+                <span class="badge-biomed float-end">
+                    <i class="fas fa-clock"></i> Nueva admisión
+                </span>
+            </div>
+            <div class="card-body p-4">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-id-card" style="color: #1a365d;"></i> N° Identidad
+                            </label>
+                            {{ form.numero_identidad }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-user" style="color: #1a365d;"></i> Nombre completo
+                            </label>
+                            {{ form.nombre }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-calendar" style="color: #1a365d;"></i> Fecha de Nacimiento
+                            </label>
+                            {{ form.fecha_nacimiento }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-phone" style="color: #1a365d;"></i> Teléfono
+                            </label>
+                            {{ form.telefono }}
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-map-marker-alt" style="color: #1a365d;"></i> Dirección
+                            </label>
+                            {{ form.direccion }}
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-image" style="color: #1a365d;"></i> Foto / Documento adjunto
+                            </label>
+                            {{ form.foto }}
+                            <small class="text-muted d-block">Formatos: JPG, PNG, PDF (máx 10MB)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-biomed">
+                            <i class="fas fa-save"></i> Guardar Paciente
+                        </button>
+                        <a href="{% url 'lista_pacientes' %}" class="btn btn-biomed-outline">
+                            <i class="fas fa-arrow-left"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Mejoras para los campos del formulario */
+    input, textarea, select {
+        border: 2px solid #e0e7ef;
+        border-radius: 10px !important;
+        padding: 10px 14px !important;
+        transition: all 0.3s;
+        width: 100%;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+        border-color: #1a365d !important;
+        box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1) !important;
+    }
+    
+    input[type="file"] {
+        padding: 8px !important;
+        border: 2px dashed #1a365d !important;
+        background: #f8faff;
+    }
+</style>
+{% endblock %}

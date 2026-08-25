@@ -1,0 +1,40 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Base de datos local
+db.sqlite3
+*.sqlite3
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Archivos de configuración local
+*.local
+*.log
+
+# Archivos de medios (imágenes subidas localmente)
+media/
+
+# Archivos estáticos (cuando se recopilen)
+staticfiles/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de Django
+*.pid
+migrations/
+!*/migrations/__init__.py
+
+# Otros
+.DS_Store
+.env

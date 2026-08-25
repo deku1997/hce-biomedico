@@ -1,0 +1,1 @@
+web: gunicorn hce_project.wsgi:application
