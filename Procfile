@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn hce_project.wsgi:application
+web: sh start.sh
