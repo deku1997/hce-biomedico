@@ -1,6 +1,5 @@
 import os
 import sys
-import dj_database_url
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,18 +51,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hce_project.wsgi.application'
 
 # ============================================================
-# CONFIGURACIÓN DE BASE DE DATOS CON POSTGRESQL (via DATABASE_URL)
-# ============================================================
-# Railway/Supabase inyectan DATABASE_URL automáticamente.
-# Si no existe, usa SQLite como fallback (solo para desarrollo local).
+# 🔥 CONEXIÓN DIRECTA A POSTGRESQL (SUPABASE) - SIN VARIABLES DE ENTORNO
 # ============================================================
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Morfeo987410*',  # ⚠️ ¡REEMPLAZA ESTO!
+        'HOST': 'db.fqwvzgjkszyszvcgjkpn.supabase.co',
+        'PORT': '5432',
+    }
 }
-
-# Línea de depuración: muestra qué motor de base de datos se está usando.
-# Esto aparecerá en los logs de Railway.
-print(f"🌐 Usando base de datos: {DATABASES['default']['ENGINE']}", file=sys.stderr)
 # ============================================================
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -81,7 +80,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Archivos subidos (imágenes) y estáticos
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
