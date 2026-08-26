@@ -1,5 +1,4 @@
 import os
-import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +55,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'Morfeo987410*',  # ⚠️ ¡REEMPLAZA ESTO!
+        'PASSWORD': 'Morfeo987410*',  # ⚠️ REEMPLAZA CON TU CONTRASEÑA
         'HOST': 'db.fqwvzgjkszyszvcgjkpn.supabase.co',
         'PORT': '5432',
     }
