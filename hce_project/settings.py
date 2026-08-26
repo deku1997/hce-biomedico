@@ -39,8 +39,6 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -51,7 +49,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hce_project.wsgi.application'
 
 # ============================================================
-# 🔥 CONEXIÓN DIRECTA A POSTGRESQL (SUPABASE) - SIN VARIABLES DE ENTORNO
+# 🔥 CONEXIÓN DIRECTA A POSTGRESQL (SIN VARIABLES DE ENTORNO)
 # ============================================================
 DATABASES = {
     'default': {
