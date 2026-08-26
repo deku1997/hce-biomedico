@@ -8,10 +8,10 @@ SECRET_KEY = 'django-insecure-tu-clave-secreta-aqui'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
 CSRF_TRUSTED_ORIGINS = [
     'https://web-production-7fcd5.up.railway.app',
-    'https://*.railway.app',  # Para cualquier subdominio de Railway
-    'http://127.0.0.1'
+    'https://*.railway.app',
 ]
 
 INSTALLED_APPS = [
@@ -53,7 +53,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hce_project.wsgi.application'
 
 # ============================================================
-# 🔥 CONEXIÓN DIRECTA A POSTGRESQL (SIN VARIABLES DE ENTORNO)
+# 🔥 CONEXIÓN A POSTGRESQL USANDO IPv4 (FORZADO)
 # ============================================================
 DATABASES = {
     'default': {
@@ -61,8 +61,13 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'Morfeo987410*',  # ⚠️ REEMPLAZA CON TU CONTRASEÑA
-        'HOST': 'db.fqwvzgjkszyszvcgjkpn.supabase.co',
+        'HOST': '',  # Dejamos vacío porque usamos hostaddr
         'PORT': '5432',
+        'OPTIONS': {
+            'hostaddr': '192.168.1.1',  # ⚠️ REEMPLAZA CON LA IP QUE OBTUVISTE DEL PING
+            'sslmode': 'require',     # Conexión segura
+            'connect_timeout': 10,
+        }
     }
 }
 # ============================================================
