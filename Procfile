@@ -1,1 +1,1 @@
-web: gunicorn hce_project.wsgi:application
+web: python manage.py migrate && gunicorn hce_project.wsgi:application
