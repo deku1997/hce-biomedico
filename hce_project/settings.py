@@ -8,6 +8,11 @@ SECRET_KEY = 'django-insecure-tu-clave-secreta-aqui'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-7fcd5.up.railway.app',
+    'https://*.railway.app',  # Para cualquier subdominio de Railway
+    'http://127.0.0.1'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
